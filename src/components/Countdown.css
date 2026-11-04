@@ -1,0 +1,86 @@
+.countdown__title {
+  font-weight: 600;
+  font-size: calc(24 * var(--u));
+  color: var(--maroon);
+  margin: calc(14 * var(--u)) calc(-24 * var(--u)) 0;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+.countdown__sub {
+  font-weight: 600;
+  font-size: calc(15 * var(--u));
+  line-height: 1.36;
+  color: #3c1410;
+  margin-top: calc(10 * var(--u));
+  padding: 0 calc(36 * var(--u));
+  position: relative;
+  z-index: 2;
+}
+.countdown__rule {
+  width: calc(180 * var(--u));
+  height: calc(10 * var(--u));
+  margin: calc(14 * var(--u)) auto 0;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.countdown__rings {
+  display: flex;
+  justify-content: center;
+  gap: calc(14 * var(--u));
+  margin-top: calc(14 * var(--u));
+  position: relative;
+  z-index: 2;
+}
+.ring {
+  width: calc(50 * var(--u));
+}
+.ring__dial {
+  position: relative;
+}
+.ring__dial svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: rotate(-90deg);
+}
+.ring__arc {
+  transition: stroke-dashoffset 0.6s ease;
+}
+.ring__dial b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: calc(16.5 * var(--u));
+  color: #a97c20;
+}
+.ring small {
+  display: block;
+  font-size: calc(10.4 * var(--u));
+  color: #6a5c55;
+  margin-top: calc(5 * var(--u));
+  font-weight: 500;
+}
+.countdown__closing {
+  font-weight: 600;
+  font-size: calc(13.4 * var(--u));
+  color: var(--rust);
+  margin-top: calc(16 * var(--u));
+  padding: 0 calc(58 * var(--u));
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
+}
+.countdown__closing span {
+  display: block;
+}
+.countdown__closing i {
+  margin-left: 0.3em;
+  font-style: normal;
+  color: #d61f3f;
+  display: inline-block;
+  animation: heartbeat 1.4s ease-in-out infinite;
+}

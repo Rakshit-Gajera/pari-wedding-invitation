@@ -1,0 +1,220 @@
+/*
+ * Sizes are written in px measured on a 400px wide phone, then scaled to any width through --u.
+ * --cq is 1% of the page width and --vh is 1% of the screen height with the browser bars showing.
+ */
+:root {
+  --page-width: min(100vw, 480px);
+  --u: calc(var(--page-width) / 400);
+  --cq: calc(var(--page-width) / 100);
+  --vh: 1vh;
+  --maroon: #4b0f16;
+  --wine: #8f1d2c;
+  --ink: #3c1410;
+  --orange: #c4560f;
+  --rust: #af4104;
+  --gold: #ddaa4e;
+  --cream: #faeddb;
+  --peach: #ffefe2;
+  --pill-line: #e8a58a;
+}
+@supports (height: 1svh) {
+  :root {
+    --vh: 1svh;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  background: #2a1712;
+  -webkit-text-size-adjust: 100%;
+}
+html.locked,
+html.locked body {
+  overflow: hidden;
+  height: 100%;
+}
+/* The colour of the opening screen, so nothing flashes dark while it loads. */
+html.locked {
+  background: #eec686;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  color: var(--maroon);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img {
+  display: block;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  font-weight: inherit;
+}
+h1 {
+  font-size: inherit;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+svg {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+.script {
+  font-family: 'Great Vibes', 'Allura', cursive;
+  font-weight: 400;
+}
+
+/* On a computer the invite keeps the shape of a phone, centred on the page. */
+.shell {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--peach);
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.5);
+}
+.page {
+  position: relative;
+  overflow: hidden;
+  overflow: clip;
+  width: 100%;
+}
+.petals {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Garden, stairs and sand paper come from one tall painting. */
+.details {
+  position: relative;
+  z-index: 3;
+  background: url(./assets/timeline-paper-mobile.webp) 50% 0 / 172.5% auto no-repeat;
+  padding-top: calc(160 * var(--cq));
+  padding-bottom: calc(112 * var(--cq));
+  text-align: center;
+}
+.details::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(515 * var(--cq));
+  bottom: 0;
+  background: #eac488;
+  z-index: -2;
+}
+
+/* Peach run: hashtag, welcome, reply and countdown. */
+.peach {
+  position: relative;
+  background: var(--peach);
+  z-index: 4;
+  text-align: center;
+  padding-top: calc(4 * var(--u));
+}
+.run {
+  position: relative;
+  margin: calc(40 * var(--u)) calc(14 * var(--u)) 0;
+  padding: calc(26 * var(--u)) calc(14 * var(--u)) 0;
+  border: 1.5px solid var(--gold);
+  border-bottom: 0;
+  border-radius: calc(44 * var(--u)) calc(44 * var(--u)) 0 0;
+  background: linear-gradient(180deg, #ffede0, #ffefe2);
+}
+.run::before,
+.run::after {
+  content: '';
+  position: absolute;
+  top: calc(-6 * var(--u));
+  width: calc(16 * var(--u));
+  height: calc(16 * var(--u));
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.run::before {
+  left: calc(-22 * var(--u));
+}
+.run::after {
+  right: calc(-22 * var(--u));
+}
+.ornament {
+  display: block;
+  position: relative;
+  width: calc(350 * var(--u));
+  aspect-ratio: 800 / 267;
+  max-width: none;
+  margin: calc(22 * var(--u)) 0 0 calc(50% - 175 * var(--u));
+}
+.end-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 991;
+  margin-top: calc(-136 * var(--u));
+  z-index: 1;
+}
+
+/* Things come in softly as they reach the screen. */
+.rv {
+  opacity: 0;
+  transform: translateY(calc(22 * var(--u)));
+  filter: blur(3px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.9s ease;
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.28);
+  }
+  60% {
+    transform: scale(0.96);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}

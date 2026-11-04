@@ -1,0 +1,347 @@
+/* Sky, temple and the invitation card share one continuous scene. */
+.scene {
+  position: relative;
+  height: calc(calc(41 * var(--vh)) + calc(256 * var(--cq)));
+  background: #e9d3a8;
+}
+.scene__sky {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(100 * var(--vh));
+  overflow: hidden;
+}
+.scene__layer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.scene__backdrop {
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.scene__sun {
+  position: absolute;
+  left: 50%;
+  top: calc(27 * var(--vh));
+  width: 128%;
+  max-width: none;
+  transform: translateX(-50%);
+}
+.scene__mountains {
+  top: calc(calc(41 * var(--vh)) - calc(64 * var(--cq)));
+  will-change: translate;
+}
+.scene__clouds {
+  top: calc(calc(41 * var(--vh)) - calc(96 * var(--cq)));
+  will-change: translate;
+}
+.scene__garden {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: calc(calc(41 * var(--vh)) + calc(150 * var(--cq)));
+  height: calc(120 * var(--cq));
+  background: url(../assets/timeline-paper-mobile.webp) 50% calc(-25 * var(--cq)) / 190% auto no-repeat;
+  filter: blur(2px) saturate(0.92);
+  z-index: 1;
+}
+.scene__temple {
+  position: absolute;
+  left: 0;
+  top: calc(41 * var(--vh));
+  width: 100%;
+  aspect-ratio: 724 / 2171;
+  z-index: 2;
+}
+.scene__temple img {
+  width: 100%;
+  height: 100%;
+}
+.scene__flag {
+  position: absolute;
+  left: 50%;
+  top: calc(calc(41 * var(--vh)) - calc(7.4 * var(--cq)));
+  width: calc(11 * var(--cq));
+  margin-left: calc(-0.7 * var(--cq));
+  z-index: 3;
+  transform-origin: 0 100%;
+}
+.scene__flag svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.scene__cloth {
+  animation: scene-wave 2.6s ease-in-out infinite;
+  transform-origin: 4px 12px;
+}
+@keyframes scene-wave {
+  0%,
+  100% {
+    transform: skewY(-3deg) scaleX(1);
+  }
+  50% {
+    transform: skewY(3deg) scaleX(0.95);
+  }
+}
+.scene__arch {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+  pointer-events: none;
+  transform-origin: 50% 0;
+}
+@keyframes scene-settle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.25deg);
+  }
+  50% {
+    transform: translateY(1px) rotate(0.25deg);
+  }
+}
+.scene__names {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100 * var(--vh));
+  z-index: 3;
+  pointer-events: none;
+  color: var(--wine);
+  text-align: center;
+}
+.scene__names h1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(7 * var(--vh));
+  /* The handwriting leans right, so the whole block is nudged left to look centred. */
+  translate: calc(-1.75 * var(--u)) 0;
+}
+.scene__name {
+  display: block;
+  line-height: 1;
+  font-size: calc(60 * var(--u));
+}
+.scene__amp {
+  display: block;
+  margin: calc(9 * var(--u)) 0 calc(19 * var(--u));
+  translate: calc(-4.25 * var(--u)) 0;
+  font-size: calc(38 * var(--u));
+  line-height: 1;
+}
+.scene__orb {
+  position: absolute;
+  width: calc(30 * var(--u));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 206, 120, 0.95) 0, rgba(255, 200, 110, 0.5) 26%, rgba(255, 200, 110, 0) 70%);
+  animation: scene-pulse 3.6s ease-in-out infinite;
+}
+@keyframes scene-pulse {
+  0%,
+  100% {
+    transform: scale(0.72);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+.scene__star {
+  position: absolute;
+  width: calc(16 * var(--u));
+  aspect-ratio: 1;
+  fill: #fff;
+  opacity: 0.5;
+  animation: scene-twinkle 4s ease-in-out infinite;
+}
+@keyframes scene-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* The arrival, once the veil lifts. */
+.scene__mountains,
+.scene__clouds,
+.scene__temple,
+.scene__sun,
+.scene__arch,
+.scene__flag,
+.scene__name,
+.scene__amp,
+.scene__cue {
+  opacity: 0;
+}
+.open .scene__sun {
+  animation: scene-fade 1.4s ease forwards;
+}
+.open .scene__mountains {
+  animation: scene-rise-far 1.5s cubic-bezier(0.2, 0.75, 0.2, 1) 0.05s forwards;
+}
+.open .scene__clouds {
+  animation: scene-rise-mid 1.8s cubic-bezier(0.2, 0.75, 0.2, 1) 0.15s forwards;
+}
+.open .scene__temple {
+  animation: scene-rise-near 1.5s cubic-bezier(0.2, 0.75, 0.2, 1) 0.25s forwards;
+}
+.open .scene__flag {
+  animation: scene-flag 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.2) 1.3s forwards;
+}
+.open .scene__arch {
+  animation: scene-arch 1.2s cubic-bezier(0.2, 0.9, 0.3, 1.1) 0.5s forwards, scene-settle 5.5s ease-in-out 1.8s infinite;
+}
+.open .scene__name--first {
+  animation: scene-left 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+}
+.open .scene__amp {
+  animation: scene-fade 0.9s ease 1.3s forwards;
+}
+.open .scene__name--second {
+  animation: scene-right 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.1s forwards;
+}
+.open .scene__cue {
+  animation: scene-cue 0.9s ease 1.9s forwards;
+}
+@keyframes scene-fade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scene-cue {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes scene-rise-far {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scene-rise-mid {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scene-rise-near {
+  from {
+    opacity: 0;
+    transform: translateY(130px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scene-flag {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes scene-arch {
+  from {
+    opacity: 0;
+    transform: translateY(-70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scene-left {
+  from {
+    opacity: 0;
+    transform: translateX(-46px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes scene-right {
+  from {
+    opacity: 0;
+    transform: translateX(46px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scene__cue {
+  position: absolute;
+  left: 50%;
+  top: calc(calc(100 * var(--vh)) - 68px);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transform: translateX(-50%);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.scene__cue svg {
+  width: 24px;
+  height: 12px;
+  animation: scene-bounce 1.5s ease-in-out infinite;
+}
+.scene__cue span {
+  white-space: nowrap;
+  padding: calc(10 * var(--u)) calc(26 * var(--u));
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff9f0, #ffeedb);
+  color: var(--maroon);
+  font-size: calc(12.5 * var(--u));
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  box-shadow: 0 4px 14px rgba(60, 30, 10, 0.2);
+}
+@keyframes scene-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+.scrolled .scene__cue {
+  opacity: 0 !important;
+}

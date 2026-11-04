@@ -1,0 +1,79 @@
+.date__eyebrow {
+  font-weight: 700;
+  font-size: calc(12.5 * var(--u));
+  letter-spacing: 0.17em;
+  color: var(--orange);
+}
+.date__hearts {
+  display: flex;
+  justify-content: center;
+  gap: calc(14 * var(--u));
+  margin-top: calc(14 * var(--u));
+  position: relative;
+}
+.heart {
+  position: relative;
+  width: calc(80 * var(--u));
+  height: calc(76 * var(--u));
+  filter: drop-shadow(0 calc(3 * var(--u)) calc(5 * var(--u)) rgba(120, 70, 20, 0.3));
+}
+.heart__face {
+  position: absolute;
+  inset: 0;
+  clip-path: url(#heart-shape);
+  background: linear-gradient(160deg, #fffbf2, #f3e2c3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: calc(10 * var(--u));
+  text-align: center;
+}
+.heart__label {
+  font-weight: 600;
+  font-size: calc(8.5 * var(--u));
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+.heart__value {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: calc(20 * var(--u));
+  line-height: 1.2;
+  color: var(--maroon);
+  margin-top: calc(2 * var(--u));
+}
+.heart__foil {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+.heart__foil--clearing {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.date__hint {
+  font-style: italic;
+  font-weight: 500;
+  font-size: calc(13.4 * var(--u));
+  color: var(--orange);
+  margin-top: calc(16 * var(--u));
+}
+.date__hint i {
+  font-style: normal;
+  color: #d61f3f;
+  display: inline-block;
+  animation: heartbeat 1.4s ease-in-out infinite;
+}
+.date__note {
+  font-weight: 600;
+  font-size: calc(13.4 * var(--u));
+  line-height: 1.42;
+  color: #2a0e0a;
+  margin-top: calc(14 * var(--u));
+  padding: 0 calc(40 * var(--u));
+}

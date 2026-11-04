@@ -1,0 +1,160 @@
+.rsvp {
+  position: relative;
+  background: #fff;
+  border-radius: calc(30 * var(--u));
+  padding: calc(22 * var(--u)) calc(20 * var(--u)) calc(16 * var(--u));
+  margin-top: calc(14 * var(--u));
+  box-shadow: 0 calc(8 * var(--u)) calc(24 * var(--u)) rgba(150, 90, 50, 0.14);
+  text-align: left;
+}
+.rsvp__title {
+  font-weight: 600;
+  font-size: calc(20 * var(--u));
+  line-height: 1.24;
+  color: var(--maroon);
+  text-align: center;
+}
+.rsvp__label {
+  display: block;
+  font-weight: 600;
+  font-size: calc(12.6 * var(--u));
+  color: var(--maroon);
+  margin-top: calc(16 * var(--u));
+  margin-bottom: calc(6 * var(--u));
+}
+.rsvp__label em {
+  font-style: normal;
+  color: #d61f3f;
+}
+.rsvp__input {
+  width: 100%;
+  height: calc(40 * var(--u));
+  border: 1px solid #e5dad3;
+  border-radius: calc(20 * var(--u));
+  padding: 0 calc(14 * var(--u));
+  font: inherit;
+  /* Below 16px, iPhones zoom the whole page in when a field is tapped. */
+  font-size: max(16px, calc(14.5 * var(--u)));
+  color: var(--maroon);
+  background: #fff;
+  outline-offset: 1px;
+}
+.rsvp__input::placeholder {
+  color: #787069;
+}
+.rsvp__phone {
+  display: flex;
+  gap: calc(8 * var(--u));
+}
+.rsvp__phone select {
+  flex: 0 0 calc(122 * var(--u));
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0h10L5 6z' fill='%23615850'/%3E%3C/svg%3E") calc(100% - 12px) 50% / 10px 6px no-repeat;
+}
+.rsvp__note {
+  height: calc(78 * var(--u));
+  padding-top: calc(10 * var(--u));
+  line-height: 1.3;
+  resize: vertical;
+}
+.rsvp__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(6 * var(--u));
+}
+.rsvp__chip {
+  min-height: calc(32 * var(--u));
+  padding: 0 calc(14 * var(--u));
+  border-radius: 999px;
+  border: 1px solid #ded6d0;
+  background: #fff;
+  font-size: calc(12.2 * var(--u));
+  color: #5f5852;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.rsvp__chip[aria-pressed='true'] {
+  background: #fce9d6;
+  border-color: var(--orange);
+  color: var(--rust);
+  font-weight: 600;
+}
+.rsvp__send {
+  display: block;
+  width: 100%;
+  min-height: calc(46 * var(--u));
+  margin-top: calc(14 * var(--u));
+  border-radius: calc(24 * var(--u));
+  background: linear-gradient(100deg, #b5470a, #8a2e03);
+  color: #fff;
+  font-weight: 600;
+  font-size: calc(14.5 * var(--u));
+  transition: transform 0.15s ease;
+}
+.rsvp__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.rsvp__send:disabled {
+  opacity: 0.7;
+}
+.rsvp__send:active {
+  transform: scale(0.98);
+}
+.rsvp__status {
+  font-size: calc(12 * var(--u));
+  line-height: 1.4;
+  margin-top: calc(8 * var(--u));
+  min-height: calc(16 * var(--u));
+  text-align: center;
+}
+.rsvp__problem {
+  color: #b3122b;
+}
+.rsvp__thanks {
+  color: #2f6b2f;
+  font-weight: 500;
+}
+.rsvp__thanks a {
+  text-decoration: underline;
+  font-weight: 600;
+}
+.rsvp__contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1e2ce;
+  margin-top: calc(8 * var(--u));
+  padding-top: calc(12 * var(--u));
+}
+.rsvp__contact b {
+  display: block;
+  font-weight: 600;
+  font-size: calc(13.5 * var(--u));
+  color: var(--maroon);
+}
+.rsvp__contact span {
+  font-size: calc(11.4 * var(--u));
+  color: #6a5c55;
+}
+.rsvp__contact-buttons {
+  display: flex;
+  gap: calc(8 * var(--u));
+}
+.rsvp__contact-buttons a {
+  width: calc(38 * var(--u));
+  height: calc(38 * var(--u));
+  border-radius: 50%;
+  background: #fdebd8;
+  color: #7a2e1a;
+  display: grid;
+  place-items: center;
+}
+.rsvp__contact-buttons svg {
+  width: calc(16 * var(--u));
+  height: calc(16 * var(--u));
+  stroke-width: 1.9;
+}

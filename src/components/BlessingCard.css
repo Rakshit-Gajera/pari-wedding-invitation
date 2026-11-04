@@ -1,0 +1,81 @@
+/* Invitation card, frosted over the arch of the painting. */
+.blessing {
+  position: absolute;
+  z-index: 4;
+  left: calc(9.5 * var(--cq));
+  right: calc(9.5 * var(--cq));
+  top: calc(calc(41 * var(--vh)) + calc(133 * var(--cq)));
+  height: calc(150 * var(--cq));
+  border-radius: calc(160 * var(--u));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 calc(10 * var(--u));
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255, 245, 230, 0.96) 0, rgba(255, 244, 228, 0.88) 52%, rgba(255, 244, 228, 0.56) 100%);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 0 calc(1.5 * var(--u)) rgba(221, 170, 78, 0.8), 0 0 0 calc(5 * var(--u)) rgba(255, 246, 230, 0.28);
+}
+.blessing__ganesh {
+  width: calc(50 * var(--u));
+  aspect-ratio: 335 / 482;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #ffb02e, #e2670f);
+  -webkit-mask: url(../assets/ganesha-card.webp) center / contain no-repeat;
+  mask: url(../assets/ganesha-card.webp) center / contain no-repeat;
+}
+.blessing__shloka {
+  font-family: 'Noto Serif Gujarati', 'Mukta Vaani', serif;
+  font-weight: 700;
+  font-size: calc(14 * var(--u));
+  line-height: 1.5;
+  color: var(--ink);
+  margin-top: calc(10 * var(--u));
+}
+.blessing__shloka span,
+.blessing__groom-parents span {
+  display: block;
+}
+.blessing__parents {
+  font-weight: 600;
+  font-size: calc(14 * var(--u));
+  line-height: 1.25;
+  color: var(--wine);
+  margin-top: calc(14 * var(--u));
+}
+.blessing__invite {
+  font-weight: 500;
+  font-size: calc(13 * var(--u));
+  line-height: 1.36;
+  color: var(--ink);
+  margin-top: calc(6 * var(--u));
+  padding: 0 calc(16 * var(--u));
+}
+.blessing__names {
+  color: #6e1a1f;
+  margin-top: calc(13 * var(--u));
+}
+.blessing__big {
+  display: block;
+  font-size: calc(50 * var(--u));
+  line-height: 1.08;
+}
+.blessing__and {
+  display: block;
+  font-size: calc(30 * var(--u));
+  line-height: 1.1;
+}
+.blessing__label {
+  font-weight: 600;
+  font-size: calc(13 * var(--u));
+  color: #1e0c08;
+  margin-top: calc(5 * var(--u));
+}
+.blessing__groom-parents {
+  font-weight: 600;
+  font-size: calc(14 * var(--u));
+  line-height: 1.25;
+  color: var(--wine);
+  margin-top: calc(6 * var(--u));
+}
