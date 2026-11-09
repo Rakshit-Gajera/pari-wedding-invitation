@@ -5,6 +5,4 @@ dist
 
 # Personal and licensed files that stay on this computer
 Couple.jpeg
-*.mp3
-public/music/
 .wrangler

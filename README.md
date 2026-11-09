@@ -86,9 +86,9 @@ Only the sheet's owner can read the replies. "Anyone" only lets the invite send 
 
 ## Change the song
 
-Put the song at `public/music/wedding-song.mp3`, with that exact name, or point `music.file` in the config at another file. Keep it under about 5 MB so it starts quickly on phones.
+The song is `public/music/sahiba.mp3`, and it starts when a guest presses Open Invitation. To change it, add the new song to `public/music` under a new name, point `music.file` in the config at it, then commit and push. Keep it under about 5 MB so it starts quickly on phones.
 
-> **The song is not in this repository.** It is a commercial track, so it is left out of the code on purpose. Add your own to run the site with music; without it, the music button simply hides itself.
+> **The song has to be committed.** Every deploy is built from this repository, so a song that is only on your computer will not reach the live site. If the file is missing, the music button hides itself.
 
 ## Put it online
 

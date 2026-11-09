@@ -8,8 +8,8 @@ export const wedding = {
   groom: 'Deep',
   weddingAt: '2026-11-24T19:45:00+05:30',
 
-  // To change the song, replace this file (keep the name) or point this at a new one in public/music.
-  music: { file: 'music/wedding-song.mp3', volume: 0.6 },
+  // To change the song, add it to public/music under a new name and point this at it.
+  music: { file: 'music/sahiba.mp3', volume: 0.6 },
 
   // The first screen a guest sees, before they press Open Invitation.
   opening: {

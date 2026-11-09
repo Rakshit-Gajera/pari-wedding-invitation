@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { statSync } from 'node:fs';
 import { test } from 'node:test';
 import { eventDate, eventTime, heartValues, timeLeft } from '../src/lib/dates.js';
 import { googleCalendarLink, icsFile, replyMessage, replyProblem, whatsappLink } from '../src/lib/links.js';
@@ -83,4 +84,10 @@ test('functions run in order and every one has a time and length', () => {
   assert.ok(starts.every((t) => !Number.isNaN(t)));
   assert.deepEqual(starts, [...starts].sort((a, b) => a - b));
   assert.ok(wedding.events.every((e) => e.minutes > 0));
+});
+
+test('the song in the config ships with the site', () => {
+  const song = statSync(new URL(`../public/${wedding.music.file}`, import.meta.url));
+  assert.ok(song.size > 100_000, 'the song file looks empty');
+  assert.ok(song.size < 5 * 1024 * 1024, 'the song is too large to start quickly on phones');
 });
